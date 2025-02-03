@@ -53,6 +53,36 @@
           rgb(249, 223, 138) 100%
         );
       }
+      .animated-btn {
+        position: relative;
+        padding: 0.6rem 1rem;
+        background: rgba(255, 220, 38, 1);
+        border: none;
+        cursor: pointer;
+        overflow: hidden;
+      }
+
+      .code-rain {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 220, 38, 0.4) 0%,
+          rgba(255, 220, 38, 0.6) 50%,
+          rgba(255, 220, 38, 0.4) 100%
+        );
+        opacity: 1;
+        animation: rain 2s linear infinite;
+      }
+
+      @keyframes rain {
+        0% {
+          transform: translateY(-100%);
+        }
+        100% {
+          transform: translateY(100%);
+        }
+      }
     </style>
     <script>
       tailwind.config = {
@@ -178,10 +208,12 @@
               Discover a world of treats, toys, and essentials handpicked for
               your furry friends. Shop now and make tails wag with joy!
             </p>
-            <button
-              class="btn bg-primary-color sora-font font-normal lg:text-xl"
-            >
-              Find a pet
+
+            <!-- animated btn  -->
+
+            <button class="animated-btn sora-font rounded-md">
+              <span>Find a pet</span>
+              <div class="code-rain"></div>
             </button>
           </div>
 
@@ -565,7 +597,9 @@
         <h1 class="adlam-font lg:text-3xl text-2xl">
           Meet local sitters who will treat your pets like family
         </h1>
-        <div class="flex lg:flex-row flex-col lg:gap-7 gap-4 sora-font mt-12">
+        <div
+          class="flex lg:flex-row flex-col lg:gap-7 gap-4 sora-font lg:mt-12 mt-8"
+        >
           <div
             class="bg-primary-card-bg rounded-xl text-center flex-1 px-5 py-10"
           >
